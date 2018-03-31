@@ -1,0 +1,4 @@
+.pull-right .dropdown-menu:after {
+    left: auto;
+    right: 100px;
+}

@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    <h3>Alight Advocacy Help Requests</h3>
+    <div class="pull-right" style="margin-bottom:50px;">
+      <i class="fa fa-check-circle fa-lg text-success"></i>
+      <select (change)="onChange($event.target)">
+        <option>All</option>
+        <option>Open</option>
+        <option>Closed</option>
+      </select>
+    </div>
+  </div>
+  <div *ngFor="let gmc of gmcArray;let i=index">
+    <div class="row">
+      <div class="col-md-4">
+        {{gmc.date}}
+      </div>
+      <div class="col-md-8">
+        <table class="table table-hover table-responsive-md table-fixed">
+          <thead class="blue-grey lighten-4" style="background-color: grey">
+            <tr>
+              <th>Status</th>
+              <th>Description</th>
+              <th>Last Updated</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of gmc.items | filter:selectedValue">
+              <td><a><b>{{item.status}}</b></a></td>
+              <td>{{item.Description}}</td>
+              <td>{{item.LastUpdatedDate}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <hr/>
+  </div>
